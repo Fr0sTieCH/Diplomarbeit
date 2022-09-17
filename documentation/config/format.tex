@@ -1,0 +1,45 @@
+%---------------------------------
+%  LaTeX fromat-related settings
+%---------------------------------
+
+% Use "Abb." as figure-prefix
+\renewcaptionname{ngerman}{\figurename}{Abb.}
+% Fontsize for figurecaptions
+\captionsetup[figure]{font=scriptsize}
+% Fontsize for tablecaptions
+\captionsetup[table]{font=scriptsize}
+
+\setlength{\parindent}{0pt}
+\tolerance=1
+\hbadness=10000
+% Turn on the style
+\pagestyle{fancy}
+% Clear the footer
+\fancyfoot{}
+% Set the right side of the footer to be the page number
+\fancyfoot[R]{Seite | \thepage}
+
+% Setup lstset for codesnippets
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstset{ 
+    language=C++,
+    backgroundcolor=\color{black!5}, % set backgroundcolor
+    basicstyle=\footnotesize,% basic font setting
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{blue},
+    numberstyle=\tiny\color{codegray},
+    emph={char,double,bool,String, Serial},
+    emphstyle={\color{blue}},
+    breakatwhitespace=false,                         
+    captionpos=b,                                    
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
