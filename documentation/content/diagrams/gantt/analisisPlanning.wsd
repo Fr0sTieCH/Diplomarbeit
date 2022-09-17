@@ -1,0 +1,45 @@
+@startgantt analisisPlanning
+
+hide footbox
+printscale daily zoom 4
+project starts the 2022/09/18
+
+
+
+[Analyse] lasts 10 days
+
+'EVENTS:
+
+
+[ist-sit.] lasts 2 days
+[Stakehold.] lasts 1 days
+[Ziele] lasts 1 days
+[Anford.] lasts 1 days
+[Abgrenz.] lasts 1 days
+[Testkonz.] lasts 1 days
+[Risikomanagement] lasts 2 days
+[Wirtschaftlichkeit] lasts 2 days
+
+
+'PLANNING
+[Analyse] starts at 2022/09/19
+[Konzept] starts at [Analyse]'s end
+[ist-sit.] starts at [Analyse]'s start
+[Stakehold.] starts at [ist-sit.]'s end
+[Ziele] starts at [Stakehold.]'s end
+[Anford.] starts at [Ziele]'s start
+[Abgrenz.] starts at [Anford.]'s start
+[Testkonz.] starts at [Abgrenz.]'s end
+[Risikomanagement] starts at [Testkonz.]'s end
+[Wirtschaftlichkeit] starts at [Risikomanagement]'s start
+
+
+
+
+'COLORS
+[Analyse] is colored in LightBlue/Black
+[Konzept] is colored in LightGreen/Black
+2022/09/26 to 2022/09/28 are named [BUFFER]
+2022/09/26 to 2022/09/28 are colored in LightBlue
+
+@endgantt

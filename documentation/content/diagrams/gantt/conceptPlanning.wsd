@@ -1,0 +1,40 @@
+@startgantt roughtPlanning
+
+hide footbox
+printscale daily zoom 5
+project starts the 2022/09/28
+
+'TASKS:
+[Konzept] lasts 10 days
+[GAWF] lasts 1 days
+[Kontext] lasts 2 days
+[Use Cases] lasts 2 days
+[Klassen] lasts 1 days
+[Sequenz] lasts 2 days
+[State] lasts 2 days
+[Architektur] lasts 1 days
+[Mockup] lasts 1 days
+
+'PLANNING
+[Konzept] starts at 2022/09/29
+[Realisierung] starts at [Konzept]'s end
+[GAWF] starts at [Konzept]'s start
+[Kontext] starts at [GAWF]'s end
+[Use Cases] starts at [Kontext]'s start
+[Use Cases] starts at 2022/10/01
+[Klassen] starts at [Use Cases]'s start
+[Klassen] starts at 2022/10/02
+[Sequenz] starts at [Klassen]'s start
+[State] starts at [Sequenz]'s end
+[Architektur] starts at [State]'s end
+[Mockup] starts at [Architektur]'s start
+
+
+
+
+'COLORS
+[Konzept] is colored in LightGreen/Black
+[Realisierung] is colored in LightPink/Black 
+2022/10/07 to 2022/10/08 are named [BUFFER]
+2022/10/07 to 2022/10/08  are colored in LightBlue
+@endgantt

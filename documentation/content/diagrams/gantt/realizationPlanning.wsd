@@ -1,0 +1,57 @@
+@startgantt realizationPlanning
+
+hide footbox
+printscale daily zoom 4
+project starts the 2022/10/08
+
+[Realisierung] lasts 14 days
+
+'EVENTS:
+
+
+[Richtlinien] lasts 1 days
+
+[GL-Applikation] lasts 4 days
+[DA-Applikation] lasts 4 days
+[GUI-Applikation] lasts 4 days
+
+[Testing Appl] lasts 2 days
+[Bugfixing Appl] lasts 2 days
+
+[GL-EditorWindow] lasts 2 days
+[DA-EditorWindow] lasts 2 days
+[GUI-EditorWindow] lasts 3 days
+
+
+[Testing EW] lasts 2 days
+[Bugfixing EW] lasts 2 days
+
+
+'PLANNING
+[Realisierung] starts at 2022/10/09
+[Deploym.] starts at [Realisierung]'s end
+[Richtlinien] starts at [Realisierung]'s start
+[GL-Applikation] starts at [Realisierung]'s start
+[DA-Applikation] starts at [Realisierung]'s start
+[GUI-Applikation] starts at [Realisierung]'s start
+[GUI-Applikation] starts at 2022/10/11
+[Testing Appl] starts at [GUI-Applikation]'s end
+[Bugfixing Appl] starts at [GUI-Applikation]'s end
+
+[GL-EditorWindow] starts at [Bugfixing Appl]'s end
+[DA-EditorWindow] starts at [Bugfixing Appl]'s end
+[GUI-EditorWindow] starts at [Bugfixing Appl]'s end
+[GUI-EditorWindow] starts at 2022/10/16
+[Testing EW] starts at [GUI-EditorWindow]'s end
+[Bugfixing EW] starts at [GUI-EditorWindow]'s end
+
+
+'COLORS
+[Realisierung] is colored in LightPink/Black 
+2022/10/22 to 2022/10/22 are named [BUFFER]
+2022/10/22 to 2022/10/22 are colored in LightBlue
+
+2022/10/09 to 2022/10/15 are named [Intensiv Arbeitswoche (Vollzeit)]
+2022/10/09 to 2022/10/15 are colored in LightGreen
+
+@endgantt

@@ -1,0 +1,40 @@
+@startgantt deploymentPlanning
+
+hide footbox
+printscale daily zoom 4
+project starts the 2022/10/22
+
+[Deployment] lasts 15 days
+
+[Abgabe] happens at 2022/10/30
+'EVENTS:
+
+
+
+
+[Code Refactoring] lasts 7 days
+[Dokumentation überarbeiten] lasts 7 days
+[Fazit] lasts 7 days
+[Readme] lasts 3 days
+[Veröffent.] lasts 1 days
+
+[Micorwebsite] lasts 7 days
+
+
+
+'PLANNING
+[Deployment] starts at 2022/10/23
+[Code Refactoring] starts at [Deployment]'s start
+[Dokumentation überarbeiten] starts at [Deployment]'s start
+[Readme] starts at [Deployment]'s start
+[Readme] starts at 2022/10/27
+[Fazit] starts at [Deployment]'s start
+[Veröffent.] starts at [Deployment]'s start
+[Veröffent.] starts at 2022/10/29
+
+[Micorwebsite] starts at [Abgabe]'s end
+
+
+
+'COLORS
+@endgantt

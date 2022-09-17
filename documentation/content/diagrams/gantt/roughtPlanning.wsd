@@ -1,0 +1,31 @@
+@startgantt roughtPlanning
+
+hide footbox
+printscale daily zoom 1
+project starts the 2022/09/16
+
+'EVENTS:
+[Kick-Off] happens at 2022/09/16
+[Review_1] happens at 2022/10/7
+[Review_2] happens at 2022/10/24
+
+'TASKS:
+[Initialisierung] lasts 2 days
+[Analyse] lasts 10 days
+[Konzept] lasts 10 days
+[Realisierung] lasts 14 days
+[Deployment] lasts 8 days
+
+'PLANNING
+[Initialisierung] starts the 2022/09/17
+[Analyse] starts at [Initialisierung]'s end
+[Konzept] starts at [Analyse]'s end
+[Realisierung] starts at [Konzept]'s end
+[Deployment] starts at [Realisierung]'s end
+
+'COLORS
+[Initialisierung] is colored in LightYellow/Black
+[Analyse] is colored in LightBlue/Black
+[Konzept] is colored in LightGreen/Black
+[Realisierung] is colored in LightPink/Black 
+@endgantt

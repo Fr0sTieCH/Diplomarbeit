@@ -1,0 +1,31 @@
+@startgantt initializationPlanning
+
+hide footbox
+printscale daily zoom 15
+
+project starts the 2022/09/16
+
+
+
+'TASKS:
+[Initialisierung] lasts 2 days
+'EVENTS:
+[Tasks] happens at 2022/09/16
+
+[Dokumente Vorbereiten] lasts 2 days
+[Repository Anlegen] lasts 2 days
+[Themeneingabe] lasts 2 days
+[Planung] lasts 2 days
+
+'PLANNING
+[Initialisierung] starts the 2022/09/17
+[Dokumente Vorbereiten] starts at [Tasks]'s end
+[Repository Anlegen] starts at [Tasks]'s end
+[Themeneingabe] starts at [Tasks]'s end
+[Planung] starts at [Tasks]'s end
+
+
+'COLORS
+[Initialisierung] is colored in LightYellow/Black
+
+@endgantt
