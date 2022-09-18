@@ -1,0 +1,47 @@
+
+%Header
+\rhead{\includegraphics[width=3cm]{../content/images/phlowr.png}}
+
+%Title page
+%\input{../content/titlePage.tex}
+ 
+
+
+\setlength\arrayrulewidth{1.1pt}
+\setlength{\headsep}{1.5cm}
+
+\pagenumbering{roman}
+
+
+\newpage
+\pagestyle{plain}
+\setcounter{tocdepth}{3}
+\tableofcontents
+\cleardoublepage
+
+\pagestyle{fancy}
+%Footer
+\lfoot{\footnotesize \arbeit, \autor, {\the\year}}
+\pagenumbering{arabic}
+\setcounter{page}{1}
+
+%Main Body
+\input{../content/body.tex}
+
+
+
+% Abbildungsverzeichnis
+\newpage 
+\pagestyle{plain}
+\thispagestyle{empty}
+ 
+\newpage
+\pagenumbering{alph}
+
+%\phantomsection \label{listoffig}
+\listoffigures
+\newpage
+\listoftables
+
+%Appendix
+\input{../content/appendix.tex}
