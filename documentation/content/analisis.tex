@@ -20,6 +20,12 @@ im bezug auf Indieentwickler rauszufiltern.
 
 \subsection{Stakeholder}
 
+Im folgenden abschnitt werden die wichtigsten Stakeholder ermittelt.
+Dabei werden deren Interessen an das Projekt analysiert und daraus eine entsprechende Gewichtung vorgenommen.
+Die erkenntnisse aus der Stakeholderanalyse fliessen anschliessend in die
+Definition der Ziele und Anforderungen ein.\\
+Folgende Stakeholder werden berücksichtigt:\\
+
 \begin{itemize}
     \item TEKO
     \item Indieentwickler
@@ -28,15 +34,214 @@ im bezug auf Indieentwickler rauszufiltern.
     \item GitHub
     \item Unity
 \end{itemize}
+\newpage
+
+\subsubsection{Stakeholdergewichtung}
+\vspace{1cm}
+\begin{figure}[H]
+    \centering
+\rotatebox{90}{\begin{minipage}{0.75\textheight}
+    \includegraphics[width=20cm]{../content/excel/StakeholderAnalysis.png}
+\end{minipage}}
+\caption{Stakeholder Analyse}
+\end{figure}
+\newpage
+
+\begin{center}
+    
+\begin{tikzpicture}
+    \pie[text=legend, sum=auto, explode=0.1, radius = 4]{
+        11/Ich, 
+        4/Indieentwickler, 
+        10/Teko, 
+        3/Videospielkonumenten, 
+        4/Unity Technologies, 
+        3/GitHub Inc.
+        }
+\end{tikzpicture}
+\end{center}
+
+
 
 
 \newpage
 \subsection{Ziele}
+\begin{itemize}
+    \item Projektmanagement und Projekt soll als einheit abgespeichert werden können
+    \item Schnellere erfassung von Tasks während der Entwicklungsphase
+    \item Höhere Rate von abgeschlossenen Projekten
+    \item Höhere Qualität von abgeschlossenen Projekten
+\end{itemize}
 \newpage
 \subsection{Anforderungen}
+\subsubsection{Applikation}
+\begin{itemize}
+    \item Unity-Projekte können in der Applikation geplant werden
+    \item Aktivitäten können in der Applikation erstellt, bearbeitet und gelöscht werden
+    \item Aktivitäten können terminiert werden (Start -und Enddatum)
+    \item Aktivitäten können kommentiert werden
+    \item Aktivitäten können priorisiert werden
+    \item Aktivitäten können punkte zugewiesen werden (z.B. Story Points oder Stunden)
+    \item Aktivitäten können gruppiert werden (z.B. zu Phasen)
+    \item Gruppen von Aktivitäten können kommentiert werden*
+    \item Gruppen können terminiert werden (Start- und Enddatum)
+    \item Gruppen können priorisiert werden
+    \item Gruppen können punkte zugewiesen werden (z.B. Story Points oder Stunden)
+    \item Bestehende Unity-Projekte können der Applikation hinzugefügt werden
+    \item Meilensteine können in der Applikation geplant werden
+    \item Aktivitäten können Benutzern zugewiesen werden
+    \item Wird ein Unity-Projekt der Applikation hinzugefügt, so wird das entsprechende Custom-Editor-Script dem Projektordner hinzugefüg
+\end{itemize}
+\subsubsection{In Unity integriertes Benutzerinterface}
+\begin{itemize}
+    \item  Aktivitäten zum aktuell geöffneten Projekt können erstellt werden
+    \item Aktivitäten zum aktuell geöffneten Projekt können bearbeitet werden
+    \item Projektinformationen zum aktuell geöffneten Projekt (Beschreibung, Meilensteine usw.) können angesehen werden
+\end{itemize}
+\subsubsection{Nicht funktionale Anforderungen}
+\begin{itemize}
+    \item Projektdaten werden beim Projekt selbst hinterlegt
+    \item Einfache erweiterbarkeit der Features
+    \item Projektdaten können mitels versionsverwaltung (z.B. GIT) synchronisiert werden
+\end{itemize}
 \newpage
 \subsection{Abgrenzung}
+\begin{itemize}
+    \item Projektdaten (Aktivitäten, Gruppen usw.) werden nicht auf einer Datenbank persistiert
+    \item Die Softwarelösung ist ausschliesslich auf Windows Geräten verfügbar
+    \item Synchronisation der Daten z.B. über einen Webserver ist nicht möglich
+\end{itemize}
 \newpage
 \subsection{Risikomanagement}
+\subsubsection{Risikoerkennung}
+%------------------------------------------------------- 
+%RISK EVALUATION TABLE
+\begin{table}[H]
+    \centering
+    \settowidth\tymin{executeIncomingCommand()}
+    \setlength\extrarowheight{2pt}
+    \begin{tabulary}{1.0\textwidth}{| m{3cm} | m{9cm} |}
+      \hline
+      \textbf{Risiko-Art} &
+      \textbf{Mögliche Risiken}\\
+      \hline
+      \textbf{Technologisch} &
+        \begin{itemize}
+            \item Das Speichern der Projektdaten im Projektordner ist zu wehnig performant 
+        \end{itemize}\\
+      \hline
+      \textbf{Personell} &
+      \begin{itemize}
+        \item Krankheitsausfall
+        \end{itemize}\\
+      \hline
+      \textbf{Werkzeuge} &
+      \begin{itemize}
+        \item Änderungen durch Unity in Form von Updates, könnten den Einsatz von Custom Editor Windows erschweren oder verunmöglichen
+        \end{itemize}\\
+      \hline
+      \textbf{Anforderung} &
+        \begin{itemize}
+        \item Nachträgliche Änderungen / Erweiterungen werden verlangt
+        \end{itemize}\\
+      \hline
+      \textbf{Schätzung} &
+      \begin{itemize}
+        \item Die Entwicklungsdauer wurde unterschätzt
+        \item Die Dauer der Dokumentationen wurde unterschätzt
+      \end{itemize}\\
+      \hline
+    \end{tabulary}
+    \caption{Risikoerkennung}
+  \end{table}
+%------------------------------------------------------- 
+\subsubsection{Risikogewichtung}
+Nachfolgend werden die erkannten Risiken nach ihrer Eintrittswahrscheinlichkeit (0-5) und den 
+möglichen Auswirkungen (0-5) bewertet.\\
+%------------------------------------------------------- 
+%RISK WEIGHT TABLE
+\begin{table}[H]
+    \centering
+    \settowidth\tymin{executeIncomingCommand()}
+    \setlength\extrarowheight{2pt}
+    \begin{tabulary}{1.0\textwidth}{|L|L|L|}
+      \hline
+      \textbf{Risiko} &
+      \textbf{Eintrittswarscheinlichkeit}&
+      \textbf{Auswirkung}\\
+      \hline
+      Das Speichern der Projektdaten im Projektordner ist zu wehnig performant &
+      3 &
+      2\\
+      \hline
+      Krankheitsausfall &
+      3 &
+      2\\
+      \hline
+      Änderungen durch Unity in Form von Updates, könnten den Einsatz von Custom Editor Windows erschweren oder verunmöglichen &
+      1 &
+      4\\
+      \hline
+      Nachträgliche Änderungen / Erweiterungen werden verlangt &
+      2 &
+      3\\
+      \hline
+      Die Entwicklungsdauer wurde unterschätzt &
+      3 &
+      3\\
+      \hline
+      Die Dauer der Dokumentationen wurde unterschätzt &
+      3 &
+      3\\
+      \hline
+    \end{tabulary}
+    \caption{Risikogewichtung}
+  \end{table}
+%------------------------------------------------------- 
+
+\subsubsection{Massnahmen}
+%------------------------------------------------------- 
+%RISK ACTION TABLE
+\begin{table}[H]
+    \centering
+    \settowidth\tymin{executeIncomingCommand()}
+    \setlength\extrarowheight{2pt}
+    \begin{tabulary}{1.0\textwidth}{|L|L|}
+      \hline
+      \textbf{Risiko} &
+      \textbf{Massnahme}\\
+      \hline
+      Das Speichern der Projektdaten im Projektordner ist zu wehnig performant &
+      Im Rahmen der Diplomarbeit werden keine direkten Massnahmen geplant.
+      Performance Optimierungen, respektive Änderungen die daraus folgen werden nach Veröffentlichung der Applikation vorgenommen\\
+      \hline
+      Krankheitsausfall &
+      Bei Eintritt eines krankheitbedingten Ausfalls wird der Diplomlehrer sofort Informiert und abgeklärt ob Anforderungen gekürzt werden können\\
+      \hline
+      Änderungen durch Unity in Form von Updates, könnten den Einsatz von Custom Editor Windows erschweren oder verunmöglichen &
+      Eintrittswarscheinlichkeit während der Projektdauer sehr klein, bei eintritt wird mit der alten Unity-Version weitergearbeitet\\
+      \hline
+      Nachträgliche Änderungen / Erweiterungen werden verlangt &
+      Werden zusätzliche Anforderungen verlangt, so muss der Mehraufwand berechnet werden und deren Folgen auf den Zeitplan.\\
+      \hline
+      Die Entwicklungsdauer wurde unterschätzt &
+      Mit dem Diplomlehrer direkt über mögliche kürzungen der Anforderungen diskutieren\\
+      \hline
+      Die Dauer der Dokumentationen wurde unterschätzt &
+      Mit dem Diplomlehrer direkt über mögliche kürzungen der Anforderungen diskutieren\\
+      \hline
+    \end{tabulary}
+    \caption{Massnahmen}
+  \end{table}
+%------------------------------------------------------- 
 \newpage
 \subsection{Wirtschaftlichkeit}
+Dadurch, dass die Applikation als Open-Source-Software zu verfügung gestellt wird,
+ist eine direkte überprüfung der Wirtschaftlichkeit kaum möglich.\\
+Für mich als Entwickler wird die Software nicht Wirtschaftlich sein, 
+denn die theoretischen Entwicklungskosten belaufen sich auf rund 20'000 Fr.- (ca. 200h Arbeitsaufwand * 100.- Stundensatz).\\
+Die Effektiven Entwicklungskosten sind jedoch eher bei 0 Fr.- anzusiedeln, denn die einzigen Kosten die ich ausser meiner Zeit investiere sind Heiz, Strom und Internetkosten, welche jedoch so oder so anfallen.
+\vspace{1cm}\\
+Dies bedeutet aber nicht, dass Open-Source-Software nicht Wirtschaftlich ist. Aus Entwickler und Firmensicht stimmt das zwahr,
+jedoch können die Nutzer (Mich eingeschlossen) der Software einen erheblichen Wirtschaftlichen Nutzen erhalten. 
+Denn die Benutzung der Software ist gratis, es fallen keine zusätzlichen Kosten an und zudem können Entwicklungsdauer und Kosten bei der Entwicklung von Videospielen verkleinert werden.

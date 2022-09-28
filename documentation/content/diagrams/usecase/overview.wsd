@@ -1,0 +1,48 @@
+@startuml overviewUseCase
+left to right direction
+actor "Project owner" as po
+actor "Project dev" as dev
+
+
+rectangle "Phlowr Application" as app #SkyBlue{
+    usecase "add project" as addProject
+    usecase "manage project" as manageProject
+    usecase "add task" as addTask
+    usecase "edit task" as editTask
+    usecase "add user" as addUser
+    usecase "manage users" as manageUsers
+
+}
+
+rectangle "Unity" as unity #LightGrey;line.dashed;{
+    usecase "create Project" as createProject #line.dashed;
+
+    rectangle "Phlowr UUI" as UI #LightBlue{
+        usecase "add my task" as addTaskUUI
+        usecase "edit my task" as editTaskUUI
+    }
+
+} 
+
+po ---> createProject
+
+po ---> addTaskUUI
+po ---> editTaskUUI
+
+
+po -u-> addProject
+po -u-> addTask
+po -u-> editTask
+po -u-> manageProject
+po -u-> addUser
+po -u-> manageUsers
+
+
+dev ---> addTaskUUI
+dev ---> editTaskUUI
+
+dev -u-> addTask
+dev -u-> editTask
+
+
+@enduml
