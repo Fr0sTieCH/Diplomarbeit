@@ -1,0 +1,27 @@
+@startuml registerAsUserSequence
+Actor User
+collections Phlowr <<ProjectDetails>> #LightBlue
+participant Project
+participant LocalData
+participant DAL <<Singleton>>
+
+
+activate LocalData
+activate Project
+
+User -> Phlowr : open Project-Details
+activate Phlowr
+User -> Phlowr : Click Register as Dev
+
+Phlowr -> LocalData : Get LocalUser
+LocalData --> Phlowr : LocalUser
+Phlowr -> Project : RegisterUser(LocalUser)
+
+Project -> Project : Check aviable slots > 0
+Project -> Project : Check user not already registered
+Project -> Project : _dev.Add(LocalUser)
+Project -> LocalData : Save()
+Project -> DAL : WriteToJSON(Project, ProjectPath)
+
+
+@enduml

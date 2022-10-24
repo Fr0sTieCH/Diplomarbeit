@@ -3,13 +3,12 @@ In den folgenden Kapiteln, werden die punkte, welche bereits in der Themeneingab
 definiert wurden, präzisiert.
 
 \subsection{Ausgangslage}
-Um, als Indieentwickler, Projekte zu plaanen, hat man heutzutage bereits eine relativ grosse Auswahl an
-Projektmanagement Tools.
-Tools wie Azure DevOps sind jedoch hauptsächlich für grössere Teams gedacht und der mehraufwand schreckt die meisten Einzelentwickler ab.
-Desshalb wird meisst auf ein Projektmanagement tool verzichtet und man behilft sich mit Post-Its oder einem Whiteboard.\\
-Die meisten Projekt management Tools haben einen ähnlichen aufbau, welcher sich auch bewährt hat.
-Um ein Produkt in dieser Kategorie zu entwickeln, ist es sicher eine gute Idee, bestehende Produkte etwas genauer anzusehen und vor und nachteile 
-im bezug auf Indieentwickler rauszufiltern.
+Um als Indieentwickler Projekte zu planen, hat man heutzutage bereits eine relativ grosse Auswahl an
+Projektmanagement-Tools.
+Tools wie Azure DevOps sind jedoch hauptsächlich für grössere Teams gedacht und der Mehraufwand schreckt die meisten Einzelentwickler ab.
+Desshalb wird meisst auf ein Projektmanagement-Tool verzichtet und man behilft sich mit Post-Its oder einem Whiteboard.\\
+Viele Tools haben einen ähnlichen Aufbau, daher habe ich mich im Rahmen der Ist-Analyse dazu entschieden, bestehende Produkte etwas genauer anzusehen und Vor- und Nachteile 
+im Bezug auf Indieentwickler rauszufiltern.
 
 \subsubsection{Analyse von bestehenden Lösungen}
 
@@ -34,6 +33,27 @@ Folgende Stakeholder werden berücksichtigt:\\
     \item GitHub
     \item Unity
 \end{itemize}
+\vspace{1cm}
+Auf der nächsten Seite werden die identifizierten Stakeholder nach Ihrer jeweiligen Macht und ihrem Einfluss gewichtet.\\
+Dabei zeigt sich folgendes Bild:
+
+\begin{figure}[H] 
+  \begin{center}  
+    \begin{tikzpicture}
+      \pie[text=legend, sum=auto, explode=0.1, radius = 5]{
+          3/Videospielkonsumenten, 
+          3/GitHub Inc.,
+          4/Unity Technologies, 
+          4/Indieentwickler, 
+          10/Teko, 
+          11/Ich
+          }
+    \end{tikzpicture}
+  \end{center}
+  \caption{Stakeholder Anteile}
+\end{figure}
+
+  
 \newpage
 
 \subsubsection{Stakeholdergewichtung}
@@ -47,61 +67,60 @@ Folgende Stakeholder werden berücksichtigt:\\
 \end{figure}
 \newpage
 
-\begin{center}
-    
-\begin{tikzpicture}
-    \pie[text=legend, sum=auto, explode=0.1, radius = 4]{
-        11/Ich, 
-        4/Indieentwickler, 
-        10/Teko, 
-        3/Videospielkonumenten, 
-        4/Unity Technologies, 
-        3/GitHub Inc.
-        }
-\end{tikzpicture}
-\end{center}
-
-
-
-
 \newpage
 \subsection{Ziele}
+Nachfolgend definiere ich die Ziele meiner Diplomarbeit, da das Projekt keinen direkten Wirtschaftlichen auslöser hat, beziehen sich die Ziele mehr auf 
+
+\subsubsection{Projektmanagement Ziele}
+Mein Ziel ist es, ...
 \begin{itemize}
-    \item Projektmanagement und Projekt soll als einheit abgespeichert werden können
-    \item Schnellere erfassung von Tasks während der Entwicklungsphase
-    \item Höhere Rate von abgeschlossenen Projekten
-    \item Höhere Qualität von abgeschlossenen Projekten
+    \item ... die Deadline bezüglich der Diplomarbeit einzuhalten, dazu werde ich anhand der Planung ein Controlling durchführen um etwaige Komplikationen oder Verzögerungen frühzeitig erkennen und entsprechende Massnahmen einleiten zu können.
+    \item ... zwei Reviews vor Projektende durchzuführen
 \end{itemize}
+
+\subsubsection{Projekt spezifische Ziele}
+Mein Ziel ist es, ...
+\begin{itemize}
+    \item ... die Lösung nach Abschluss der Diplomarbeit für alle Entwickler zugänglich zu machen, dazu wird die Lösung als Open-Source Projekt entwickelt.
+    \item ... dass die Lösung, nach Abschluss der Diplomarbeit, für alle zugänglich und verständlich dokumentiert wird. Dazu werde ich eine Readme-Datei via Git-Hub veröffentlichen.
+\end{itemize}
+
+\subsubsection{Long-Term Ziele}
+Mein Ziel ist es, ...
+\begin{itemize}
+  \item ... mit Hilfe, der in diesem Projekt erstellten Lösung, ein Videospiel-Projekt bis Ende 2023 abschliessen zu können
+\end{itemize}
+
+
 \newpage
 \subsection{Anforderungen}
 \subsubsection{Applikation}
-\begin{itemize}
-    \item Unity-Projekte können in der Applikation geplant werden
-    \item Aktivitäten können in der Applikation erstellt, bearbeitet und gelöscht werden
-    \item Aktivitäten können terminiert werden (Start -und Enddatum)
-    \item Aktivitäten können kommentiert werden
-    \item Aktivitäten können priorisiert werden
-    \item Aktivitäten können punkte zugewiesen werden (z.B. Story Points oder Stunden)
-    \item Aktivitäten können gruppiert werden (z.B. zu Phasen)
-    \item Gruppen von Aktivitäten können kommentiert werden*
-    \item Gruppen können terminiert werden (Start- und Enddatum)
-    \item Gruppen können priorisiert werden
-    \item Gruppen können punkte zugewiesen werden (z.B. Story Points oder Stunden)
-    \item Bestehende Unity-Projekte können der Applikation hinzugefügt werden
-    \item Meilensteine können in der Applikation geplant werden
-    \item Aktivitäten können Benutzern zugewiesen werden
-    \item Wird ein Unity-Projekt der Applikation hinzugefügt, so wird das entsprechende Custom-Editor-Script dem Projektordner hinzugefüg
-\end{itemize}
+\begin{outline}
+    \1 Bestehende Unity-Projekte können der Applikation hinzugefügt werden
+    \1 Aktivitäten können in der Applikation erstellt, bearbeitet und gelöscht werden
+    \1 Aktivitäten können terminiert werden (Start -und Enddatum)
+    \1 Aktivitäten können kommentiert werden
+    \1 Aktivitäten können priorisiert werden
+    \1 Aktivitäten können punkte zugewiesen werden (z.B. Story Points oder Stunden)
+    \1 Aktivitäten können gruppiert werden (z.B. zu Phasen)
+    \1 Gruppen von Aktivitäten können kommentiert werden*
+    \1 Gruppen können terminiert werden (Start- und Enddatum)
+    \1 Gruppen können priorisiert werden
+    \1 Gruppen können punkte zugewiesen werden (z.B. Story Points oder Stunden)
+    \1 Meilensteine können in der Applikation geplant werden
+    \1 Aktivitäten können Benutzern zugewiesen werden
+    \1 Wird ein Unity-Projekt der Applikation hinzugefügt, so wird das entsprechende Custom-Editor-Script dem Projektordner hinzugefüg
+\end{outline}
 \subsubsection{In Unity integriertes Benutzerinterface}
 \begin{itemize}
-    \item  Aktivitäten zum aktuell geöffneten Projekt können erstellt werden
-    \item Aktivitäten zum aktuell geöffneten Projekt können bearbeitet werden
+    \item Der User kann eigene Aktivitäten zum aktuell geöffneten Projekt erstellen
+    \item Der User kann seine Aktivitäten zum aktuell geöffneten Projekt bearbeiten
     \item Projektinformationen zum aktuell geöffneten Projekt (Beschreibung, Meilensteine usw.) können angesehen werden
 \end{itemize}
 \subsubsection{Nicht funktionale Anforderungen}
 \begin{itemize}
     \item Projektdaten werden beim Projekt selbst hinterlegt
-    \item Einfache erweiterbarkeit der Features
+    \item Features sollen als Addon hinzugefügt werden können (Analog den PowerUps von Trello)
     \item Projektdaten können mitels versionsverwaltung (z.B. GIT) synchronisiert werden
 \end{itemize}
 \newpage
@@ -112,6 +131,7 @@ Folgende Stakeholder werden berücksichtigt:\\
     \item Synchronisation der Daten z.B. über einen Webserver ist nicht möglich
 \end{itemize}
 \newpage
+
 \subsection{Risikomanagement}
 \subsubsection{Risikoerkennung}
 %------------------------------------------------------- 

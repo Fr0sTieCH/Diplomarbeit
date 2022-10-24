@@ -1,12 +1,161 @@
 \section{Konzept}
-\subsection{Geschäftsnwendungsfälle}
-\newpage
-\subsection{Kontextdiagram}
-\newpage
+
 \subsection{Use Case Diagramme}
+Im folgenden Abschnitt werde ich die Use-Cases identifizieren und beschreiben.\\
+Dies dient zum einen zum Erfassen der benötigten Klassen und zum anderen um ein gutes Testkonzept zu erstellen.
+ 
+%---OVERVIEW USECASE-IMAGE---
+\subsubsection{Use Case Übersicht}
+\begin{figure}[H]
+    \begin{center}
+      \includegraphics[width=1\linewidth]{../content/diagrams/usecase/overview/overviewUseCase.png}
+      \caption{Use Case Diagramm <Übersicht>}
+    \end{center}
+  \end{figure}
+
+  \newpage
+  %---ADD PROJECT USECASE---
+\input{../content/conceptContent/useCaseContent/addProjectUseCase.tex}
+\newpage
+    %---MANAGE PROJECT USECASE---
+\input{../content/conceptContent/useCaseContent/manageProjectUseCase.tex}
+ \newpage
+
+\subsubsection{Includes von „Projekt verwalten“}
+  \begin{figure}[H]
+    \begin{center}
+      \includegraphics[width=1\linewidth]{../content/diagrams/usecase/manageProject/manageProjectUseCase.png}
+      \caption{Use Case Diagaramm <manage project>}
+    \end{center}
+  \end{figure}
+
+  \newpage
+  %---MANAGE Project includes---
+
+   %---CHANGE PO USECASE include---
+  \input{../content/conceptContent/useCaseContent/manageProjectIncludes/changePOUseCase.tex}
+  \newpage
+  
+   %---EDIT USER-SLOTS USECASE include---
+   \input{../content/conceptContent/useCaseContent/manageProjectIncludes/editUserSlotsUseCase.tex}
+  \newpage
+
+   %---REMOVE USER USECASE include---
+   \input{../content/conceptContent/useCaseContent/manageProjectIncludes/removeUserUseCase.tex}
+   \newpage
+
+
+  
+   %---REGISTER AS DEV USECASE---
+   \input{../content/conceptContent/useCaseContent/registerAsDevUseCase.tex}
+   \newpage
+
+
+  %---ADD TASK USECASE-TABLE---
+  \input{../content/conceptContent/useCaseContent/addTaskUseCase.tex}
+  \newpage
+
+
+
+  %---CLASSSDIAGRAM---
+  \newpage
+\subsection{Klassendiagramm}
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=0.5\linewidth]{../content/diagrams/class/classDiagram/classDiagram.png}
+    \caption{Klassendiagramm}
+  \end{center}
+\end{figure}
+\subsubsection{Projekt Klassenbeschreibung}
+\begin{table}[H]
+  \centering
+  \settowidth\tymin{executeIncomingCommand()}
+  \setlength\extrarowheight{2pt}
+  \begin{tabulary}{1.0\textwidth}{|l|l|}
+    \hline
+    \textbf{Klasse} &
+    \textbf{Projekt}\\
+    \hline
+    \multicolumn{2}{c}{Attribute}\\
+    \hline
+  \end{tabulary}
+  \caption{Klassenbeschreibung: Projekt}
+\end{table}
+
+
 \newpage
 \subsection{Sequenzdiagramme}
+%---LOAD LOCAL DATA SEQUENCE---
+\subsubsection{Laden der lokalen Daten beim Starten der Applikation}
+Da alle lokal zu persistierenden Daten in einem JSON-Dokument abgespeichert werden,
+müssen diese Daten beim Starten der Applikation geladen werden. Dabei gibt es zwei Szenarien:\\
+\begin{enumerate}
+  \item Die Applikation wird zum ersten Mal gestartet und es existiert noch kein JSON-Dokument\\
+  \item Es existieren bereits gespeicherte Daten in Form eines JSON-Dokuments\\
+\end{enumerate}
+
+In der Klasse „LocalData“ wird die statische Methode „LoadOrCreate“ ausgeführt, in dieser Methode wird über
+den Data-Access-Layer (DAL) geprüft, ob ein solches JSON Dokument existiert. Existiert dieses, so wird
+das Objekt über den DAL ausgelesen, dabei enthält das Objekt ebenfalls eine Instanz der Klasse „LocalUser“
+welcher somit ebenfalls geladen wurde.\\
+Existiert kein JSON-Dokument so wird erst ein neuer User als „LocalUser“ erstellt, dabei wird auch dessen Guid generiert
+(Das Generieren der Guid eines Users darf nur hier erfolgen!). Anschliessend wird eine neue Instanz der Klasse „LocalData“ mit dem neuen „LocalUser“ erstellt.
+Diese wird über den DAL als JSON-Dokument abgespeichert und kann beim nächstmaligen Starten der Applikation geladen werden.
+
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=0.7\linewidth]{../content/diagrams/sequence/loadLocalDataSequence/loadLocalDataSequence.png}
+    \caption{Sequenzdiagramm: Load LocalData}
+  \end{center}
+\end{figure}
 \newpage
+
+%---ADD PROJECT SEQUENCE---
+\subsubsection{Projekt Hinzufügen}
+Das Hinzufügen eines Projektes ist sehr einfach gehalten, denn bei diesem Vorgang werden keine Projekt-Objekte erzeugt oder geladen.
+Durch einen Klick auf „Projekt hinzufügen“ wird der Verzeichnis-Explorer angezeigt, in diesem navigiert der Benutzer zum gewünschten Unity-Projektordner
+und wählt diesen aus. Anschliessend wird die Methode „AddProjectPath“ in der LocalData-Instanz ausgeführt, ist der Pfad nicht bereits vorhanden, so wird dieser in die Liste aufgenommen.\\
+Zum Schluss wird die LocalData-Instanz wieder abgespeichert.\\
+Das Erzeugen der Projekte wird im Sequenzdiagramm „Laden der Projekte“ behandelt.
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=0.7\linewidth]{../content/diagrams/sequence/addProjectSequence/addProjectSequence.png}
+    \caption{Sequenzdiagramm: Add Project}
+  \end{center}
+\end{figure}
+\newpage
+
+%---LOAD PROJECTS SEQUENCE---
+\subsubsection{Laden der Projekte}
+Beim Öffnen des Projekt-Dashboards werden alle hinzugefügten Projekte geladen.\\
+Dafür wird durch alle Projekt-Pfade, welche in der LocalData-Instanz vorhanden sind, geloopt. Für jeden Pfad wird die statische Methode „LoadOrCreate“ in der Projekt-Klasse ausgeführt.
+Diese Methode überprüft über den DAL, ob bereits ein JSON-Dokument unter dem angegebenen Pfad vorhanden ist.
+Ist ein JSON-Dokument vorhanden, so wird dieses über den DAL geladen und zurückgegeben. Ist noch keine Projektdatei vorhanden, so wird eine neue Projekt-Instanz erzeugt, 
+der Projekt-Owner der neu erzeugten Instanz wird automatisch der LocalUser. Die Instanz wird anschliessend abgespeichert, als JSON-Dokument im angegebenen Pfad abgelegt und zurückgegeben.
+Das Projekt-Dashboard fügt die erhaltene Projekt-Instanz zur Projekt-Liste hinzu.
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=0.7\linewidth]{../content/diagrams/sequence/loadProjectsSequence/loadProjectsSequence.png}
+    \caption{Sequenzdiagramm: Load Projects}
+  \end{center}
+\end{figure}
+\newpage
+
+%---REGISTER AS USER SEQUENCE---
+\subsubsection{Als Entwickler registrieren}
+Damit ein User als Entwickler in einem Projekt geplant werden kann, muss er sich zuerst beim Projekt registrieren.
+Dafür navigiert er zum entsprechenden Projekt und wählt „Als Entwickler registrieren“ aus. Dadurch wird auf der entsprechenden Projekt-Instanz
+die Methode „RegisterUser“ mit dem LocalUser als Übergabeparameter ausgeführt.\\
+In dieser Methode wird überprüft, ob noch ein freier Slot verfügbar ist und ob sich der User nicht schon registriert hat. 
+Für letzteres wird über alle registrierten User zusätzlich nach der Guid des neuen Users gesucht.
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=0.7\linewidth]{../content/diagrams/sequence/registerAsUserSequence/registerAsUserSequence.png}
+    \caption{Sequenzdiagramm: Register as user}
+  \end{center}
+\end{figure}
+\newpage
+
 \subsection{State Diagramme}
 \newpage
 \subsection{Systemarchitektur}

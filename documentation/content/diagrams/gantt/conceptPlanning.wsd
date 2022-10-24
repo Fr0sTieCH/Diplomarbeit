@@ -11,7 +11,8 @@ project starts the 2022/09/28
 [Use Cases] lasts 2 days
 [Klassen] lasts 1 days
 [Sequenz] lasts 2 days
-[State] lasts 2 days
+[State] lasts 1 days
+[Test] lasts 1 days
 [Architektur] lasts 1 days
 [Mockup] lasts 1 days
 
@@ -26,7 +27,8 @@ project starts the 2022/09/28
 [Klassen] starts at 2022/10/02
 [Sequenz] starts at [Klassen]'s start
 [State] starts at [Sequenz]'s end
-[Architektur] starts at [State]'s end
+[Test] starts at [State]'s end
+[Architektur] starts at [Test]'s end
 [Mockup] starts at [Architektur]'s start
 
 

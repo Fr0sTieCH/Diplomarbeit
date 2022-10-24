@@ -1,0 +1,25 @@
+@startuml editTaskUseCase
+left to right direction
+actor "Project owner" as po
+actor "Developer" as dev
+
+
+
+rectangle "Phlowr Application" as app #SkyBlue{
+    usecase "edit task" as editTask
+    usecase "edit name" as editName
+    usecase "edit description" as editDesc
+    usecase "assign User" as assignUser
+    usecase "add comment" as addComment
+}
+
+po -d-> editTask
+dev -d-> editTask
+
+editName <.u. editTask: <<include>>
+editDesc <.u. editTask: <<include>>
+assignUser <.u. editTask: <<include>>
+addComment <.u. editTask: <<include>>
+
+
+@enduml

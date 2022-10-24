@@ -1,0 +1,24 @@
+@startuml manageProjectUseCase
+left to right direction
+actor "Project owner" as po
+
+
+
+rectangle "Phlowr Application" as app #SkyBlue{
+    usecase "manage project" as manageProject
+    usecase "edit name" as editName
+    usecase "edit description" as editDesc
+    usecase "edit user-slots" as editUser 
+    usecase "remove user" as removeUser 
+     usecase "change PO" as changePO 
+}
+
+po -d-> manageProject
+editName <.u. manageProject: <<include>>
+editDesc <.u. manageProject: <<include>>
+editUser <.u. manageProject: <<include>>
+removeUser <.u. manageProject: <<include>>
+changePO <.u. manageProject: <<include>>
+
+
+@enduml

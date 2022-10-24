@@ -1,0 +1,29 @@
+@startuml addProjectSequence
+Actor User
+collections Phlowr <<ProjectDashboard>> #LightBlue
+collections Forms <<Folder-Explorer>> #LightGray
+participant LocalData
+participant DAL <<Singleton>>
+
+Activate Phlowr
+activate LocalData
+
+User -> Phlowr : Click "Add Project"
+
+Phlowr -> Forms : Show Folder-Explorer
+activate Forms
+User -> Forms : Select project-folder
+User -> Forms : Click "Ok"
+Forms --> Phlowr: Folder Path
+deactivate Forms
+
+Phlowr -> LocalData : AddProjectPath(Folder Path)
+LocalData -> LocalData: _projectPaths.Contains(Folder Path)
+alt _projectPaths.Contains(Folder Path) = false
+LocalData -> LocalData: _projectPaths.Add(Folder Path)
+
+end
+LocalData -> LocalData : Save()
+LocalData -> DAL : WriteToJSON(LocalData, AppDataPath)
+
+@enduml

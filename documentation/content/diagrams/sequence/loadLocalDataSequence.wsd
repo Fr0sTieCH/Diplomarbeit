@@ -1,0 +1,38 @@
+@startuml loadLocalDataSequence
+Actor User
+collections Phlowr <<MainWindow>> #LightBlue
+participant LocalData
+participant LocalUser
+participant DAL <<Singleton>>
+
+
+User -> Phlowr : Start Application
+Activate Phlowr
+
+
+
+Phlowr -> LocalData : static LoadOrCreate()
+LocalData -> DAL : JSONFileExists(AppDataPath)
+DAL --> LocalData : true / false
+
+alt JSONFileExists = true
+LocalData -> DAL : ReadFromJSON<LocalData>(AppDataPath)
+DAL --> LocalData: Object(LocalData)
+activate LocalData
+LocalData --> LocalUser
+activate LocalUser
+deactivate LocalData
+deactivate LocalUser
+
+else JSONFileExists = false
+LocalData -> LocalUser: new User(is LocalUser = true)
+activate LocalUser
+LocalUser -> LocalUser : id = new Guid
+LocalUser --> LocalData : object(LocalUser)
+LocalData -> LocalData : new LocalData(LocalUser)
+activate LocalData
+end
+LocalData -> LocalData : Save()
+LocalData -> DAL : WriteToJSON(LocalData, AppDataPath)
+
+@enduml

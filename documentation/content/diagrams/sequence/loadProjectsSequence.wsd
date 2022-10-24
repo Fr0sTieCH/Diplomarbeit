@@ -1,0 +1,44 @@
+@startuml loadProjectsSequence
+Actor User
+collections Phlowr <<ProjectDashboard>> #LightBlue
+participant LocalData
+participant Project
+participant DAL <<Singleton>>
+
+activate LocalData
+
+User -> Phlowr : Open Dashboard
+Activate Phlowr
+Phlowr -> Phlowr : Initialize
+Phlowr -> Phlowr : LoadProjects()
+Phlowr -> LocalData : ProjectPaths
+LocalData --> Phlowr : _projectPaths : List<string>
+
+loop foreach path in ProjectPaths
+    Phlowr -> Project : static LoadOrCreate(path, LocalUser)
+    Project -> DAL : JSONFileExists(path)
+    DAL --> Project: true / false
+
+    alt JSONFileExists(path) = true
+        Project -> DAL :ReadJON<Project>(path)
+        DAL --> Project : Object(Project)
+        activate Project
+        deactivate Project
+
+        else JSONFileExists(path) = false
+        Project -> Project : Project(LocalUser)
+        note right
+        LocalUser becomes ProjectOwner!
+        end note
+        activate Project
+        Project -> Project : Save()
+        Project -> DAL : WriteToJSON<Project>(Project, path)
+    end
+
+    Project --> Phlowr : Object(Project)
+    Phlowr -> Phlowr : _projects.Add(Project)
+end
+
+Phlowr -> Phlowr : ShowProjects
+
+@enduml

@@ -4,5 +4,8 @@
 			"path": "."
 		}
 	],
-	"settings": {}
+	"settings": {
+		"ltex.additionalRules.motherTongue": "de-CH",
+		"ltex.language": "de-CH"
+	}
 }

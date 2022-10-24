@@ -1,5 +1,7 @@
 {
     "plantuml.exportFormat": "png",
     "plantuml.exportOutDir": ".",
-    "plantuml.exportSubFolder": true
+    "plantuml.exportSubFolder": true,
+    "ltex.additionalRules.motherTongue": "de-CH",
+    "ltex.language": "de-CH"
 }
