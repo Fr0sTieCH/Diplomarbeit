@@ -1,0 +1,61 @@
+@startuml classDiagram
+top to bottom direction
+
+Class Project
+{
+    _projectName : string
+    _projectDescription : string 
+    _mainTask : Task
+    _tasks : List<Task> 
+    _devs : List<User>
+    _projectOwner : User
+}
+
+Class Task
+{
+    _title  : string 
+    _description  : string 
+    _creator  : User 
+    _assignedUser  : User? 
+    _parentTask  : Task?
+    _childTasks  : List<Task> 
+    _state : TaskState
+}
+
+Class LocalData
+{
+    _localUser : User 
+    _projectPaths  : List<string> 
+}
+
+Class User
+{
+    _prename : string
+    _surname : string
+    _email : string
+    _id : Guid
+}
+
+Interface ISaveable
+{
+  SaveToJSON() : void
+  Reload() : void
+  UnsavedChanges() : bool
+  NotifyChanges() : bool
+}
+
+enum TaskState
+{
+  New
+  InProgress
+  Done
+}
+
+ISaveable <|-d-- Project
+ISaveable <|-d- LocalData
+LocalData -- User 
+Project -l- User
+Task -- User
+Project -- Task
+
+@enduml
